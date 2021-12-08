@@ -1,3 +1,25 @@
+# Out-of-the-box setup commands
+I used Ubuntu 20.04 with anaconda version 4.8.2.
+```
+conda create -n lanedetectenv python=3.5
+```
+Wait for the environment to be created.
+```
+conda activate lanedetectenv
+```
+Install modified requirements
+```
+pip install -r requirements.txt
+```
+Wait for packages to install, then run
+```
+python test_lanenet.py --weights_path ./models/tusimple_lanenet.ckpt --image_path ./data/tusimple_test_image/0.jpg 
+```
+to test the installation. It should output images with the segmented lanes highlighted.
+
+The model was retrieved from [lanenet_pretrained_model](https://www.dropbox.com/sh/0b6r0ljqi76kyg9/AADedYWO3bnx4PhK1BmbJkJKa?dl=0). Any lane inference and segmentation code can be used in place of this model.
+
+
 # LaneNet-Lane-Detection
 Use tensorflow to implement a Deep Neural Network for real time lane detection mainly based on the IEEE IV conference 
 paper "Towards End-to-End Lane Detection: an Instance Segmentation Approach".You can refer to their paper for details 
